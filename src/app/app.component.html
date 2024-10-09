@@ -5,7 +5,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 <style>
   :host {
@@ -322,7 +322,7 @@
       </div>
     </div>
   </div>
-</main>
+</main>-->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -330,7 +330,53 @@
 <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 
 <router-outlet />
+* -->
+
+<h1>Aplicação</h1>
+<app-header></app-header>
+<!-- <app-menu></app-menu>
+<app-rodape></app-rodape>-->
+<router-outlet></router-outlet>
+
+<ul>
+  <li>item1 - {{descricao1}}</li>
+  <li>item2</li>
+</ul>
+
+<label></label>
+<br>
+<label>Nome</label>
+<input [(ngModel)]="valor.nome"/>
+<label>Descrição</label>
+<input [(ngModel)]="valor.descricao"/>
+<label>ID</label>
+<input [(ngModel)]="valor.id"/>
+<br>
+<br>
+<div *ngIf="clientPremium; else naopremium">
+  <h1>voce é um cliente premium</h1>
+</div>
+
+<ng-template #naopremium>
+  <h1>Não é cliente premium</h1>
+</ng-template>
+
+
+
+<ul *ngFor = "let para of paras">
+  <li>{{para.id}} - {{para.nome}} - {{para.descricao}}</li>
+</ul>
+
+<br>
+<br>
+<label>Nome</label>
+<input [(ngModel)]="entrada.nome"/><br>
+<label>Descrição</label>
+<input [(ngModel)]="entrada.descricao"/><br>
+<label>ID</label>
+<input [(ngModel)]="entrada.id"/><br>
+<button (click)="adicionar()">Adicionar Item</button>
